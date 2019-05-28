@@ -12,6 +12,8 @@ import android.widget.TextView;
 
 import com.nassau.eventos_projetos.Models.Evento;
 import com.nassau.eventos_projetos.R;
+import com.squareup.picasso.Picasso;
+
 
 import java.util.List;
 
@@ -38,6 +40,11 @@ public class EventoAdapter  extends RecyclerView.Adapter<EventoAdapter.EventoVie
         holder.nomeEvento.setText(mEvento.getNome());
         holder.precoEvento.setText(Double.toString(mEvento.getValor()));
         holder.imagemEvento.setImageURI(Uri.parse(mEvento.getImagem()));
+
+        Picasso.with(this.context)
+                .load(mEvento.getImagem())
+                .placeholder(R.drawable.ic_file_download_black_24dp)
+                .into(holder.imagemEvento);
     }
 
     @Override

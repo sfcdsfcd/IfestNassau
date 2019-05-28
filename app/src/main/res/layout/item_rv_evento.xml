@@ -2,13 +2,16 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="160dp"
-    android:elevation="1dp"
+    android:layout_marginHorizontal="5dp"
+    android:layout_marginVertical="5dp"
+    android:elevation="2dp"
     android:layout_height="160dp">
 
     <LinearLayout
-        android:background="@drawable/edit_text_rounded"
+        android:background="@drawable/rounded_event_item"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:paddingHorizontal="4dp"
         android:orientation="vertical">
 
         <ImageView
@@ -21,15 +24,15 @@
             android:id="@+id/nome_evento"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
             android:text="Titulo"
-            android:layout_marginHorizontal="2dp"
             android:textStyle="bold"
             />
         <TextView
             android:id="@+id/preco_evento"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginHorizontal="2dp"
+            android:layout_marginLeft="5dp"
             android:textSize="12dp"
             android:text="R$0,00"/>
 
