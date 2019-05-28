@@ -8,14 +8,18 @@ public class Evento {
     private String nome;
     private String endereco;
     private double valor;
-    private Uri imagem;
+    private String imagem;
+    private String desc;
 
-    public Evento(String id, String nome, String endereco, double valor, Uri imagem) {
+
+
+    public Evento(String id, String nome, String endereco, double valor, String imagem, String desc) {
         this.id = id;
         this.nome = nome;
         this.endereco = endereco;
         this.valor = valor;
         this.imagem = imagem;
+        this.desc = desc;
     }
 
     public String getId() {
@@ -46,15 +50,23 @@ public class Evento {
         return valor;
     }
 
-    public Uri getImagem() {
+    public String getImagem() {
         return imagem;
     }
 
-    public void setImagem(Uri imagem) {
+    public void setImagem(String imagem) {
         this.imagem = imagem;
     }
 
     public void setValor(double valor) {
         this.valor = valor;
+    }
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
     }
 }

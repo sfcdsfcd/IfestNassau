@@ -1,6 +1,7 @@
 package com.nassau.eventos_projetos.Adapters;
 
 import android.content.Context;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -36,7 +37,7 @@ public class EventoAdapter  extends RecyclerView.Adapter<EventoAdapter.EventoVie
         Evento mEvento = eventoList.get(position);
         holder.nomeEvento.setText(mEvento.getNome());
         holder.precoEvento.setText(Double.toString(mEvento.getValor()));
-        holder.imagemEvento.setImageURI(mEvento.getImagem());
+        holder.imagemEvento.setImageURI(Uri.parse(mEvento.getImagem()));
     }
 
     @Override

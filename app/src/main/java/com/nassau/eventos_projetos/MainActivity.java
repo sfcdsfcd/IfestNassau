@@ -76,18 +76,17 @@ public class MainActivity extends AppCompatActivity implements  BaseSliderView.O
         url_maps.put("Big Bang Theory", "https://s3.amazonaws.com/jgdprod-blogs-us/blogs/wp-content/uploads/sites/116/2017/06/18920979_832885650193103_713578010828070196_o.jpg");
         url_maps.put("House of Cards", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRPEkx2XP78sJSz8KuIeOoTLJiRg-XDR-db4YkzSSGWrIZPz2un8m7V4mxh");
 
+        String img = "https://www.shopping-guararapes.com/files/news/15581168059759-arraial_bannernotcia750x456px.jpg";
 
         this.mEventoList.add(new Evento(null, "teste",
-                "rua sao sebastiao", 3.33, Uri.parse("https://www.shopping-guararapes.com/files/news/15581168059759-arraial_bannernotcia750x456px.jpg")));
+                "rua sao sebastiao", 3.33, img, null));
+        this.mEventoList.add(new Evento(null, "teste",
+                "rua sao sebastiao", 3.33, img, null));
+        this.mEventoList.add(new Evento(null, "teste",
+                "rua sao sebastiao", 3.33, img, null));
 
         this.mEventoList.add(new Evento(null, "teste",
-                "rua sao sebastiao", 3.33, Uri.parse("https://www.shopping-guararapes.com/files/news/15581168059759-arraial_bannernotcia750x456px.jpg")));
-
-        this.mEventoList.add(new Evento(null, "teste",
-                "rua sao sebastiao", 3.33, Uri.parse("https://www.shopping-guararapes.com/files/news/15581168059759-arraial_bannernotcia750x456px.jpg")));
-
-        this.mEventoList.add(new Evento(null, "teste",
-                "rua sao sebastiao", 3.33, Uri.parse("https://www.shopping-guararapes.com/files/news/15581168059759-arraial_bannernotcia750x456px.jpg")));
+                "rua sao sebastiao", 3.33, img, null));
 
         for(String name : url_maps.keySet()){
             TextSliderView textSliderView = new TextSliderView(this);
@@ -112,6 +111,18 @@ public class MainActivity extends AppCompatActivity implements  BaseSliderView.O
         this.initRvEventos();
 
     }
+
+    private void startDetailAct(Evento evento) {
+
+        if(evento == null) return;
+
+        Intent mDetailActivity = new Intent(this, EventoDetailActivity.class);
+        mDetailActivity.putExtra("FOTO_EVENTO", evento.getImagem());
+        mDetailActivity.putExtra("TITULO_EVENTO", evento.getNome());
+        mDetailActivity.putExtra("DESC_EVENTO", evento.getDesc());
+
+    }
+
 
     private void initRvEventos() {
         RecyclerView.LayoutManager manager = new GridLayoutManager(this, 2);
