@@ -31,6 +31,7 @@
                 android:layout_height="match_parent">
 
                 <android.support.design.widget.TextInputEditText
+                    android:id="@+id/et_nome_cadastro"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPersonName"
@@ -42,6 +43,7 @@
                 android:layout_height="match_parent">
 
                 <android.support.design.widget.TextInputEditText
+                    android:id="@+id/et_usuario_cadastro"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
@@ -53,6 +55,7 @@
                 android:layout_height="match_parent">
 
                 <android.support.design.widget.TextInputEditText
+                    android:id="@+id/et_senha_cadastro"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="text"
