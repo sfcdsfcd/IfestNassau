@@ -1,7 +1,6 @@
 package com.nassau.eventos_projetos.Adapters;
 
 import android.content.Context;
-import android.media.Image;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -12,7 +11,6 @@ import android.widget.TextView;
 
 import com.nassau.eventos_projetos.Models.Evento;
 import com.nassau.eventos_projetos.R;
-import com.squareup.picasso.Picasso;
 
 import java.util.List;
 

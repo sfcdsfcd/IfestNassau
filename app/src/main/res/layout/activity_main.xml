@@ -18,6 +18,16 @@
             android:layout_width="match_parent"
             android:background="@color/colorPrimaryDark"
             android:layout_height="50dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="iFest"
+                android:textColor="#ffff"
+                android:textSize="22dp"
+                android:layout_gravity="center"
+                android:id="@+id/toolbar_title" />
+
         </android.support.v7.widget.Toolbar>
 
         <LinearLayout

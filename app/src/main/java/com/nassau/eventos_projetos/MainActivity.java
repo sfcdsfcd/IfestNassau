@@ -2,7 +2,9 @@ package com.nassau.eventos_projetos;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.drawable.Drawable;
 import android.net.Uri;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.GridLayoutManager;
@@ -26,8 +28,8 @@ import com.daimajia.slider.library.Tricks.ViewPagerEx;
 import com.nassau.eventos_projetos.Adapters.EventoAdapter;
 import com.nassau.eventos_projetos.Adapters.RecyclerItemClickListener;
 import com.nassau.eventos_projetos.Models.Evento;
+import com.nassau.eventos_projetos.Models.Usuario;
 
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -35,17 +37,40 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity implements  BaseSliderView.OnSliderClickListener, ViewPagerEx.OnPageChangeListener{
 
     private SliderLayout mSliderLayout;
+    private android.support.v7.widget.Toolbar tbNavigation;
     private RecyclerView rvEventos;
     private List<Evento> mEventoList;
+    private Usuario mUsuarioLogado;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        mUsuarioLogado = new Usuario(null, null, null, null);
+
+        if (savedInstanceState == null) {
+
+            Bundle extras = getIntent().getExtras();
+            if(extras == null) {
+                startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            } else {
+                mUsuarioLogado.setNome(extras.getString("NOME_USUARIO"));
+                mUsuarioLogado.setUsername(extras.getString("USERNAME_USUARIO"));
+
+            }
+        } else {
+            mUsuarioLogado.setNome((String) savedInstanceState.getSerializable("NOME_USUARIO"));
+            mUsuarioLogado.setUsername((String) savedInstanceState.getSerializable("USERNAME_USUARIO"));
+
+        }
 
         mSliderLayout = this.findViewById(R.id.sl_eventos);
         rvEventos = this.findViewById(R.id.rv_eventos);
+        tbNavigation = this.findViewById(R.id.tb_navigation_main);
         this.mEventoList = new ArrayList<>();
-        HashMap<String,String> url_maps = new HashMap<String, String>();
+
+        this.initToolBar();
+
+        HashMap<String,String> url_maps = new HashMap<>();
 
         url_maps.put("Hannibal", "https://www.shopping-guararapes.com/files/news/15581168059759-arraial_bannernotcia750x456px.jpg");
         url_maps.put("Big Bang Theory", "https://s3.amazonaws.com/jgdprod-blogs-us/blogs/wp-content/uploads/sites/116/2017/06/18920979_832885650193103_713578010828070196_o.jpg");
@@ -119,6 +144,24 @@ public class MainActivity extends AppCompatActivity implements  BaseSliderView.O
 
             }
         }));
+    }
+
+    private void initToolBar() {
+        Drawable drawable = ContextCompat.getDrawable(this, R.drawable.ic_person_black_24dp);
+        tbNavigation.setNavigationIcon(drawable);
+        setSupportActionBar(tbNavigation);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
+
+        final Intent profile = new Intent(this, ProfileActivity.class);
+        profile.putExtra("NOME_USUARIO", this.mUsuarioLogado.getNome());
+        profile.putExtra("USERNAME_USUARIO", this.mUsuarioLogado.getUsername());
+
+        tbNavigation.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(profile);
+            }
+        });
     }
 
     @Override

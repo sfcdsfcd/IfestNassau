@@ -58,9 +58,13 @@ public class LoginActivity extends AppCompatActivity {
 
             this.btnLogin.setEnabled(false);
 
-            Usuario usuarioLogin = new Usuario(null, null,
+            Usuario usuarioLogin = new Usuario(null, "Nome Completo de Teste",
                     this.etSenha.getText().toString(), this.etUsuario.getText().toString());
 
+            Intent main = new Intent(this, MainActivity.class);
+            main.putExtra("NOME_USUARIO", usuarioLogin.getNome());
+            main.putExtra("USERNAME_USUARIO", usuarioLogin.getUsername());
+            startActivity(main);
 
 
         } catch (Exception ex) {
@@ -73,7 +77,6 @@ public class LoginActivity extends AppCompatActivity {
 
         }
 
-        startActivity(new Intent(this, MainActivity.class));
 
     }
 
