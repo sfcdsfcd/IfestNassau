@@ -1,4 +1,4 @@
-package com.nassau.eventos_projetos;
+package com.nassau.eventos_projetos.Activities;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -6,12 +6,11 @@ import android.support.design.widget.TextInputEditText;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.support.v7.widget.Toolbar;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import com.nassau.eventos_projetos.Models.Usuario;
+import com.nassau.eventos_projetos.R;
 
 public class CadastroActivity extends AppCompatActivity {
     private android.support.v7.widget.Toolbar tbNavigation;
@@ -75,8 +74,10 @@ public class CadastroActivity extends AppCompatActivity {
             Usuario usuarioCadastro = new Usuario(null, this.etNome.getText().toString(),
                                             this.etSenha.getText().toString(), this.etUsuario.getText().toString());
 
-
-            startActivity(new Intent(this, MainActivity.class));
+            Intent main = new Intent(this, MainActivity.class);
+            main.putExtra("NOME_USUARIO", usuarioCadastro.getNome());
+            main.putExtra("USERNAME_USUARIO", usuarioCadastro.getUsername());
+            startActivity(main);
         } catch (Exception ex) {
             Toast.makeText(this, "Erro ao cadastrar usuário", Toast.LENGTH_SHORT).show();
         }

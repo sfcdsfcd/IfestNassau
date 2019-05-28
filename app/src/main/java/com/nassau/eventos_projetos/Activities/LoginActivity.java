@@ -1,4 +1,4 @@
-package com.nassau.eventos_projetos;
+package com.nassau.eventos_projetos.Activities;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.nassau.eventos_projetos.Models.Usuario;
+import com.nassau.eventos_projetos.R;
 
 public class LoginActivity extends AppCompatActivity {
 

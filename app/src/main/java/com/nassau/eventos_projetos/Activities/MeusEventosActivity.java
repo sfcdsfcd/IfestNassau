@@ -1,4 +1,4 @@
-package com.nassau.eventos_projetos;
+package com.nassau.eventos_projetos.Activities;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;

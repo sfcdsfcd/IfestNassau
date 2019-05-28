@@ -1,4 +1,4 @@
-package com.nassau.eventos_projetos;
+package com.nassau.eventos_projetos.Activities;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -9,8 +9,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import com.nassau.eventos_projetos.Models.Usuario;
-
-import org.w3c.dom.Text;
+import com.nassau.eventos_projetos.R;
 
 public class ProfileActivity extends AppCompatActivity {
 
